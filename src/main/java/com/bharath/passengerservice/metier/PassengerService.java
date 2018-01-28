@@ -10,6 +10,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 
 import com.bharath.passengerservice.model.Passenger;
 
@@ -24,5 +26,6 @@ public interface PassengerService {
 	
 	@Path("/passengers")
 	@POST
-	void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName, @HeaderParam("agent") String agent);
+	void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName, 
+			@HeaderParam("agent") String agent, @Context HttpHeaders headers);
 }

@@ -2,6 +2,10 @@ package com.bharath.passengerservice.metier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MultivaluedMap;
 
 import org.springframework.stereotype.Service;
 
@@ -21,10 +25,17 @@ public class PassengerServiceImpl implements PassengerService {
 	}
 
 	@Override
-	public void addPassenger(String firstName, String lastName, String agent) {
+	public void addPassenger(String firstName, String lastName, String agent, HttpHeaders headers) {
 		System.out.println(firstName);
 		System.out.println(lastName);
 		System.out.println(agent);
+		
+		MultivaluedMap<String, String> allHeaders = headers.getRequestHeaders();
+		Set<String> headerKeys = allHeaders.keySet();
+		headerKeys.forEach(k -> {
+			System.out.println("key = " + k);
+			System.out.println(headers.getHeaderString(k));
+		});
 	}
 
 }
