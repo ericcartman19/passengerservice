@@ -2,8 +2,10 @@ package com.bharath.passengerservice.metier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedMap;
 
@@ -30,11 +32,21 @@ public class PassengerServiceImpl implements PassengerService {
 		System.out.println(lastName);
 		System.out.println(agent);
 		
+		// retrieve headers
 		MultivaluedMap<String, String> allHeaders = headers.getRequestHeaders();
 		Set<String> headerKeys = allHeaders.keySet();
 		headerKeys.forEach(k -> {
 			System.out.println("key = " + k);
 			System.out.println(headers.getHeaderString(k));
+		});
+		
+		// recuperando las cookies, las cuales vienen en el header
+		System.out.println("----------------------- Cookies ---------------------------------");
+		Map<String, Cookie> cookies = headers.getCookies();
+		Set<String> cookiesKeys = cookies.keySet();
+		cookiesKeys.forEach(ck -> {
+			System.out.println("cookis key = " + ck);
+			System.out.println("cookie = " + cookies.get(ck).getValue());
 		});
 	}
 
