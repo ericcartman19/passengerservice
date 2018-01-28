@@ -22,5 +22,5 @@ public interface PassengerService {
 	
 	@Path("/passengers")
 	@POST
-	Passenger getPassgner(Passenger p);
+	Passenger addPassenger(Passenger p);
 }

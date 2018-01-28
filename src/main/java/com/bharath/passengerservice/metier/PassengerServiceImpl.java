@@ -21,7 +21,7 @@ public class PassengerServiceImpl implements PassengerService {
 	}
 
 	@Override
-	public Passenger getPassgner(Passenger passenger) {
+	public Passenger addPassenger(Passenger passenger) {
 		passenger.setId(currentId++);
 		passengers.add(passenger);
 		return passenger;
