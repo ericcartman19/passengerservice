@@ -3,6 +3,7 @@ package com.bharath.passengerservice.metier;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -13,7 +14,7 @@ import com.bharath.passengerservice.model.Passenger;
 
 @Path("/passengerservice")
 @Produces("application/xml")
-@Consumes("application/xml")
+@Consumes("application/xml,application/x-www-form-urlencoded")
 public interface PassengerService {
 
 	@Path("/passengers")
@@ -22,5 +23,5 @@ public interface PassengerService {
 	
 	@Path("/passengers")
 	@POST
-	Passenger addPassenger(Passenger p);
+	void addPassenger(@FormParam("firstName") String firstName, @FormParam("lastName") String lastName);
 }
