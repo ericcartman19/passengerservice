@@ -1,0 +1,11 @@
+Este proyecto tiene como objetivo probar la utilizacion 
+de JAX-RS Injection, mediandte la utilizacion de diferentes
+anotaciones, i.e:
+
+- @QueryParam
+- @HeaderParam
+- @FormParam
+- Cookies
+
+
+
